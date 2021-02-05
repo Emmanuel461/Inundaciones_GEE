@@ -73,3 +73,27 @@ Map.setOptions('satellite');
 Map.centerObject(roi, 14);
 ```
 
+<p>Seguidamente proceda a llamar la colección de imágenes de GRD de Sentinel-1, para la polarizaciones  VV. Además, se recorta en relación con “roi” digitalizado previamente.</p>
+
+<p>Copie lo siguiente y pegue en el editor de código:</p> 
+
+```javascript
+// Load Sentinel-1 C-band SAR Ground Range collection (log scale, VV, descending)
+var collectionVV = ee.ImageCollection('COPERNICUS/S1_GRD')
+.filter(ee.Filter.eq('instrumentMode', 'IW'))
+.filter(ee.Filter.listContains('transmitterReceiverPolarisation', 'VV'))
+.filter(ee.Filter.eq('orbitProperties_pass', 'DESCENDING'))
+.filterMetadata('resolution_meters', 'equals' , 10)
+.filterBounds(roi)
+.select('VV');
+```
+
+<p>Puede notar cómo se filtra la polarización (VV), así como el modo de adquisición y la órbita (Descendente), además, se delimita la zona de interés (roi). Para este caso no es posible utilizar la polarización VH dado que no se encuentra disponible.</p>
+
+<p>Una vez realizados estos filtros de la colección, se delimita temporalmente el conjunto de imágenes. Además, se genera un mosaico a partir de estas.</p>
+<p>Copie lo siguiente y pegue en el editor de código:</p> 
+```javascript
+//Filter by date
+var beforeVV = collectionVV.filterDate('2016-10-01', '2016-11-15').mosaic()
+var afterVV = collectionVV.filterDate('2016-11-20', '2016-11-30').mosaic()
+```

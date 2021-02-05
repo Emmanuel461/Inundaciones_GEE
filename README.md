@@ -47,7 +47,7 @@
 <li>Identificar ventajas y desventajas del uso de imágenes SAR en la detección de inundaciones con GEE.</li></p>
 
 
-p><h2 id="Sección3">3. Interfaz de Google Earth Engine</h2></p>
+<p><h2 id="Sección3">3. Interfaz de Google Earth Engine</h2></p>
  
 
 <p>Para abrir el editor de código ingrese en: <a href="https://earthengine.google.com/" target="_blank">https://earthengine.google.com/</a>, y ubiquese en la opción  (Fig 1), luego seleccione Code Editor.</p> 
@@ -166,7 +166,7 @@ Map.addLayer(differenceVV, {min: 0,max:2},
 
 <p>Para discriminar las zonas de cambio utilice un umbral basado en los resultados (Fig 8) de la diferencia entre la imagen beforeVV y afterVV. Se designó un umbral de 1.80 desviaciones estándar del resultado de la diferencia. Añada el resultado al visualizador. </p>
 
-<Strong><p>Puede cambiar el valor del umbral y comparar resultados.</Strong></p>
+<Strong><p>Puede cambiar el valor del umbral y comparar resultados.</p></Strong>
 
 ```javascript
 //Apply Threshold

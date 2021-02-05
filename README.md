@@ -179,3 +179,33 @@ Map.addLayer(differenceVV_thresholded.updateMask(differenceVV_thresholded),{pale
 <h4 id="Sección4">Fig 8. Manchas de inundación (azul).</h4>
 
 <p>Una vez que observamos y ajustamos los resultados con base a los valores de umbral procedemos a exportar las áreas inundadas en formato “.tiff” al entorno de Google Drive. Desde donde puede descargar y visualizar este archivo y ejecutar en cualquier software SIG de su  preferencia.</p>
+
+```javascript
+// Export the image, specifying scale and region.
+Export.image.toDrive({
+image: differenceVV_thresholded ,
+description: 'Flooding',
+scale: 50,
+region: roi,
+fileFormat: 'GeoTIFF',
+});
+```
+
+<p><h2 id="Sección5">5. Conclusiones y recomendaciones.</h2></p>
+
+<p>La detección de inundaciones a partir de imágenes SAR presenta una serie de ventajas, como la obtención de información libre de nubosidad y la continuidad en la obtención de datos, aunque, su aplicación se encuentra ligada a los periodos de revisita del sensor y su coincidencia con el evento de inundación.</p>
+
+<p>El método propuesto en este manual es una forma rápida de discriminar inundaciones, utilizando GEE permite procesar este tipo de datos sin la necesidad de equipos sofisticados en software y hardware. No obstante,  si se desea mejorar la precisión es necesario implementar otros procesamientos, Por ejemplo se recomienda la ejecución de un proceso por secciones o lotes, con el fin de establecer umbrales de cambio locales con el fin de abordar las diferencias en retrodispersión generadas por las distintas coberturas y los cambios en la topografía.</p>
+
+<p>De igual forma, existen múltiples algoritmos para la detección de inundaciones con imágenes SAR,  basados en detección de cambio (como en este manual), umbrales de retrodispersión, polarimetría, interferometría, etc. Cada uno con sus ventajas y desventajas.</p> 
+
+<p>Recuerde que dadas las características del sensor Sentinel-1, las zonas inundadas bajo vegetación son difíciles de identificar, para la longitud de onda del Sensor Sentinel-1 (banda C), en muchos casos no logra penetrar las coberturas, detectandose como un área sin cambio.</p>
+
+<p><h2 id="Sección6">6. Bibliografía.</h2></p>
+
+Clement, M. A., Kilsby, C. G., & Moore, P. (2017). Multi-temporal synthetic aperture radar flood mapping using change detection. Journal of Flood Risk Management, 11(2), 152-168. <a href="https://doi.org/10.1111/jfr3.12303" target="_blank">https://doi.org/10.1111/jfr3.12303</a></p>
+
+<p>Flores, A. I., Herndon, K. E., Bahadur Thapa, R., & Cherrington, E. (Eds.). (2019). The Synthetic Aperture Radar (SAR) Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation. <a href="https://doi.org/10.25966/nr2c-s697" target="_blank">https://doi.org/10.25966/nr2c-s697</a></p>
+
+<p>Shen, W., Li, M., Huang, C., Tao, X., Li, S., & Wei, A. (2019). Mapping annual forest change due to afforestation in Guangdong Province of China using active and passive remote sensing data. Remote Sensing, 11(5), 1-21. <a href="https://doi.org/10.3390/rs11050490" target="_blank">https://doi.org/10.3390/rs11050490</a></p>
+

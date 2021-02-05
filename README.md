@@ -61,3 +61,15 @@ p><h2 id="Sección3">3. Interfaz de Google Earth Engine</h2></p>
 <h4 id="Sección3">Fig 2. Interfaz de editor de código GEE.</h4>
 
 <p>Es importante señalar que en la plataforma en “repositorio de código” en la sección de <strong>“Examples”</strong> puede encontrar una serie de códigos de ejemplo con diferentes tipos de datos de origen con los cuales puede experimentar y editar a conveniencia para diferentes aplicaciones.<p>
+
+<p><h2 id="Sección4">4. Procesamiento y análisis</h2></p>
+
+<p>Primero se debe generar un polígono (utilice el administrador de geometrías), a partir del cual se mostrará el nivel de zoom y del centro del despliegue del visualizador, esto se ejecuta a través de la casilla <strong>Geometry imports</strong>, en donde se le asigna el nombre de “roi”.<p> 
+
+<p>Una vez realizado este paso se procede a establecer que la visualización se muestra con base a una imagen RGB satelital y se define el centro de visualización (“roi”) y el nivel de zoom respectivamente.</p>
+
+```javascript
+Map.setOptions('satellite');
+Map.centerObject(roi, 14);
+```
+

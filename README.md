@@ -62,9 +62,9 @@
 
 <p>Es importante señalar que en la plataforma en “repositorio de código” en la sección de <strong>“Examples”</strong> puede encontrar una serie de códigos de ejemplo con diferentes tipos de datos de origen con los cuales puede experimentar y editar a conveniencia para diferentes aplicaciones.<p>
 
-<p><h2 id="Sección4">4. Procesamiento y análisis</h2></p> 
+<p><h2> id="Sección4">4. Procesamiento y análisis</h2></p> 
 
-<p> <Strong>Nota:</Strong> el código ejecutado en el presente manual se puede acceder por medio del siguiente link:<a href="https://code.earthengine.google.com/6d4215005c8e5ae677af64a2718c051a" target="_blank">https://code.earthengine.google.com/6d4215005c8e5ae677af64a2718c051a</a><p>
+<p> <Strong><h3>Nota:</h3></Strong> el código ejecutado en el presente manual se puede acceder por medio del siguiente link:<a href="https://code.earthengine.google.com/d9078953f0382c135e95aa6ff5a99b42" target="_blank">https://code.earthengine.google.com/d9078953f0382c135e95aa6ff5a99b42</a><p>
 
 <p>Primero se debe generar un polígono (utilice el administrador de geometrías), a partir del cual se mostrará el nivel de zoom y del centro del despliegue del visualizador, esto se ejecuta a través de la casilla <strong>Geometry imports</strong>, en donde se le asigna el nombre de “roi”.<p> 
 

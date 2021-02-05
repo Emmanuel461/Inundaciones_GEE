@@ -105,7 +105,7 @@ print(beforeVV, 'Before VV');
 print(afterVV, 'After VV');
 ```
 <img src="Fig3.png" />
-<h4 id="Sección3">Fig 3. Imágenes disponibles en las colecciones VV, en el periodo y área asignada.</h4>
+<h4 id="Sección4">Fig 3. Imágenes disponibles en las colecciones VV, en el periodo y área asignada.</h4>
 
 <p>Seguidamente visualice las imágenes de antes y después de las inundaciones, utilizando el comando “Map.addLayer ()”. Para que añada las imágenes al visualizador (Fig 4) pero no las cargue de inmediato, añada un “,0” después del nombre de la banda que se encuentra entre comillas simples y cierre paréntesis.</p>
 
@@ -118,4 +118,14 @@ Map.addLayer(afterVV, {min:-15,max:0}, 'After flood VV', 0);
 ```
 <img src="Fig4_1.png" />
 <img src="Fig4_2.png" />
-<h4 id="Sección3">Fig 4. Imágenes antes y después de las inundaciones.</h4>
+<h4 id="Sección4">Fig 4. Imágenes antes y después de las inundaciones.</h4>
+
+<p>Seguidamente realice una composición con los mosaicos beforeVV y afterVV (Fig 5).</p>
+
+```javascript
+//Create image composition
+Map.addLayer(beforeVV.addBands(afterVV).addBands(beforeVV), {min: -25, max: -8},
+'composite', 0);
+```
+<img src="Fig5.png" />
+<h4 id="Sección4">Fig 5. Composición de imágenes (beforeVV-afterVV).</h4>

@@ -92,8 +92,17 @@ var collectionVV = ee.ImageCollection('COPERNICUS/S1_GRD')
 
 <p>Una vez realizados estos filtros de la colección, se delimita temporalmente el conjunto de imágenes. Además, se genera un mosaico a partir de estas.</p>
 <p>Copie lo siguiente y pegue en el editor de código:</p> 
+
 ```javascript
 //Filter by date
 var beforeVV = collectionVV.filterDate('2016-10-01', '2016-11-15').mosaic()
 var afterVV = collectionVV.filterDate('2016-11-20', '2016-11-30').mosaic()
 ```
+<p>El comando “print” permite reflejar los resultados en la consola de GEE (Fig 3), en este caso la cantidad de imágenes disponibles para el área de interés en el periodo asignado.</p>
+
+```javascript
+print(beforeVV, 'Before VV');
+print(afterVV, 'After VV');
+```
+<img src="Fig3.png" />
+<h4 id="Sección3">Fig 3. Imágenes disponibles en las colecciones VV, en el periodo y área asignada.</h4>

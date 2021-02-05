@@ -37,3 +37,13 @@
 <p>Se aplicó una metodología de detección de cambio y umbral para determinar inundaciones de un conjunto de imágenes SAR Sentinel-1, cuyo procesamiento se realizó en Google Earth Engine (GEE). Se utilizó la polarización VV, ya que esta presenta resultados de inundación más plausibles en este sensor (Clement. et al,. 2017). Se consideró como área de estudio la zona cercana a la llanura de inundación del río Zapote en Upala, durante el paso del huracán Otto, sucedido en noviembre 2016.</p>
 
 <p>GEE es una plataforma en la nube que posee acceso de diferentes repositorios de información, caso de Landsat, MODIS, Sentinel, SoilGrids, SRTM, ALOS-Palsar, HydroSheds entre muchos otros que favorecen el monitoreo agrícola de forma gratuita y sin cargas computacionales elevadas.</p> 
+<p><h3>
+  
+<p><h3>2.1. Objetivos de aprendizaje:</h3></p>
+
+<p><li>Introducir al manejo de la interfaz de editor de código de GEE.</li>
+<li>Analizar los procesos de interacción de la señal SAR con la superficie terrestre.</li>
+<li>Detectar cambios asociados áreas inundadas.</li>
+<li>Identificar ventajas y desventajas del uso de imágenes SAR en la detección de inundaciones con GEE.</li></p>
+
+

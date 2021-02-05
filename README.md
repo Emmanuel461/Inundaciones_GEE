@@ -132,7 +132,7 @@ Map.addLayer(beforeVV.addBands(afterVV).addBands(beforeVV), {min: -25, max: -8},
 
 <p>Analice los resultados.</p> 
 
-<p>Para ejecutar la detección de inundaciones se debe corregir el speckle (efecto de sal y pimienta en las imágenes SAR), en este caso se ejecute un “kernel” con la intención de eliminar lo mayor posible el efecto de este ruido. Cabe destacar que la resolución espacial de salida de las imágenes aumenta (ajuste la resolución de salida en la sección de  <Strong>“var SMOOTHING_RADIUS = 50”<Strong/> y compare los resultados).</p> 
+<p>Para ejecutar la detección de inundaciones se debe corregir el speckle (efecto de sal y pimienta en las imágenes SAR), en este caso se ejecute un “kernel” con la intención de eliminar lo mayor posible el efecto de este ruido. Cabe destacar que la resolución espacial de salida de las imágenes aumenta (ajuste la resolución de salida en la sección de  <Strong>“var SMOOTHING_RADIUS = 50”</Strong> y compare los resultados).</p> 
 
 ```javascript
 /Apply filter to reduce speckle
@@ -154,3 +154,28 @@ Map.addLayer(afterVV_filtered, {min:-15,max:0}, 'After Flood VV Filtered',0);
 
 <p>Para detectar los cambios entre las imágenes antes y durante el evento, se procede a ejecutar una diferencia entre las imágenes para así observar las zonas de inundación generadas en el área de interés (Fig 7). Después añada el resultado al visualizador.</p>
 
+```javascript
+// Calculate difference between before and after
+var differenceVV=
+afterVV_filtered.divide(beforeVV_filtered);
+Map.addLayer(differenceVV, {min: 0,max:2},
+'difference VV filtered', 0);
+```
+<img src="Fig7.png" />
+<h4 id="Sección4">Fig 7. Imágen de diferencia (afterVV/beforeVV).</h4>
+
+<p>Para discriminar las zonas de cambio utilice un umbral basado en los resultados (Fig 8) de la diferencia entre la imagen beforeVV y afterVV. Se designó un umbral de 1.80 desviaciones estándar del resultado de la diferencia. Añada el resultado al visualizador. </p>
+
+<Strong><p>Puede cambiar el valor del umbral y comparar resultados.</Strong></p>
+
+```javascript
+//Apply Threshold
+var DIFF_UPPER_THRESHOLD = 1.80;
+var differenceVV_thresholded = differenceVV.gt(DIFF_UPPER_THRESHOLD);
+Map.addLayer(differenceVV_thresholded.updateMask(differenceVV_thresholded),{palette:"0000FF"},'flooded areas - blue');
+```
+
+<img src="Fig8.png" />
+<h4 id="Sección4">Fig 8. Manchas de inundación (azul).</h4>
+
+<p>Una vez que observamos y ajustamos los resultados con base a los valores de umbral procedemos a exportar las áreas inundadas en formato “.tiff” al entorno de Google Drive. Desde donde puede descargar y visualizar este archivo y ejecutar en cualquier software SIG de su  preferencia.</p>

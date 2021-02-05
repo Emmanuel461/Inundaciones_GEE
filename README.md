@@ -62,7 +62,7 @@
 
 <p>Es importante señalar que en la plataforma en “repositorio de código” en la sección de <strong>“Examples”</strong> puede encontrar una serie de códigos de ejemplo con diferentes tipos de datos de origen con los cuales puede experimentar y editar a conveniencia para diferentes aplicaciones.<p>
 
-<p><h2> id="Sección4"</h2>4. Procesamiento y análisis</h2></p> 
+<p><h2> id="Sección4"<h2>4. Procesamiento y análisis</h2></p> 
 
 <p> <Strong><h3>Nota:</h3></Strong> El código ejecutado en el presente manual se puede acceder por medio del siguiente link:<a href="https://code.earthengine.google.com/d9078953f0382c135e95aa6ff5a99b42" target="_blank">https://code.earthengine.google.com/d9078953f0382c135e95aa6ff5a99b42</a><p>
 

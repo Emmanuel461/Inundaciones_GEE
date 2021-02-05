@@ -129,3 +129,28 @@ Map.addLayer(beforeVV.addBands(afterVV).addBands(beforeVV), {min: -25, max: -8},
 ```
 <img src="Fig5.png" />
 <h4 id="Sección4">Fig 5. Composición de imágenes (beforeVV-afterVV).</h4>
+
+<p>Analice los resultados.</p> 
+
+<p>Para ejecutar la detección de inundaciones se debe corregir el speckle (efecto de sal y pimienta en las imágenes SAR), en este caso se ejecute un “kernel” con la intención de eliminar lo mayor posible el efecto de este ruido. Cabe destacar que la resolución espacial de salida de las imágenes aumenta (ajuste la resolución de salida en la sección de  <Strong>“var SMOOTHING_RADIUS = 50”<Strong/> y compare los resultados).</p> 
+
+```javascript
+/Apply filter to reduce speckle
+var SMOOTHING_RADIUS = 50;
+var beforeVV_filtered = beforeVV.focal_mean(SMOOTHING_RADIUS, 'circle', 'meters').clip(roi);
+var afterVV_filtered = afterVV.focal_mean(SMOOTHING_RADIUS, 'circle', 'meters').clip(roi);
+```
+
+<p>Para observar los resultados de la aplicación del filtro de moteado añada las imágenes al visualizador (Fig 6). Ejecute la siguiente línea de código.</p> 
+
+```javascript
+//Display filtered images
+Map.addLayer(beforeVV_filtered, {min:-15,max:0}, 'Before Flood VV Filtered',0);
+Map.addLayer(afterVV_filtered, {min:-15,max:0}, 'After Flood VV Filtered',0);
+```
+<img src="Fig6_1.png" />
+<img src="Fig6_2.png" />
+<h4 id="Sección4">Fig 6. Imágenes antes y después de las inundaciones con reducción de moteado (speckle).</h4>
+
+<p>Para detectar los cambios entre las imágenes antes y durante el evento, se procede a ejecutar una diferencia entre las imágenes para así observar las zonas de inundación generadas en el área de interés (Fig 7). Después añada el resultado al visualizador.</p>
+

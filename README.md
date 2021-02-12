@@ -140,7 +140,7 @@ Map.addLayer(beforeVV.addBands(afterVV).addBands(beforeVV), {min: -25, max: -8},
 //Apply filter to reduce speckle
 var Smooth = 50;
 var beforeVV_filtered = beforeVV.focal_mean(Smooth, 'circle', 'meters').clip(roi);
-var afterVV_filtered = afterVV.focal_mean(SSmooth, 'circle', 'meters').clip(roi);
+var afterVV_filtered = afterVV.focal_mean(Smooth, 'circle', 'meters').clip(roi);
 
 ```
 

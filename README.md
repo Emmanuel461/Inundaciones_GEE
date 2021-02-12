@@ -137,10 +137,11 @@ Map.addLayer(beforeVV.addBands(afterVV).addBands(beforeVV), {min: -25, max: -8},
 <p>Para ejecutar la detección de inundaciones se debe corregir el speckle (efecto de sal y pimienta en las imágenes SAR), en este caso se ejecute un “kernel” con la intención de eliminar lo mayor posible el efecto de este ruido. Cabe destacar que la resolución espacial de salida de las imágenes aumenta (ajuste la resolución de salida en la sección de  <Strong>“var SMOOTHING_RADIUS = 50”</Strong> y compare los resultados).</p> 
 
 ```javascript
-/Apply filter to reduce speckle
-var SMOOTHING_RADIUS = 50;
-var beforeVV_filtered = beforeVV.focal_mean(SMOOTHING_RADIUS, 'circle', 'meters').clip(roi);
-var afterVV_filtered = afterVV.focal_mean(SMOOTHING_RADIUS, 'circle', 'meters').clip(roi);
+//Apply filter to reduce speckle
+var Smooth = 50;
+var beforeVV_filtered = beforeVV.focal_mean(Smooth, 'circle', 'meters').clip(roi);
+var afterVV_filtered = afterVV.focal_mean(SSmooth, 'circle', 'meters').clip(roi);
+
 ```
 
 <p>Para observar los resultados de la aplicación del filtro de moteado añada las imágenes al visualizador (Fig 6). Ejecute la siguiente línea de código.</p> 
@@ -172,9 +173,10 @@ Map.addLayer(differenceVV, {min: 0,max:2},
 
 ```javascript
 //Apply Threshold
-var DIFF_UPPER_THRESHOLD = 1.80;
-var differenceVV_thresholded = differenceVV.gt(DIFF_UPPER_THRESHOLD);
-Map.addLayer(differenceVV_thresholded.updateMask(differenceVV_thresholded),{palette:"0000FF"},'flooded areas - blue');
+var Threshold_Up = 1.80;
+var differenceVV_thresholded = differenceVV.gt(Threshold_Up);
+Map.addLayer(differenceVV_thresholded.updateMask(differenceVV_thresholded),{palette:"#1e1fd6"},'flooded areas');
+
 ```
 
 <img src="Fig8.png" />

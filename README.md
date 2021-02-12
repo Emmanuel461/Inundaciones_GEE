@@ -64,7 +64,7 @@
 
 <p><h2 id="Sección4">4. Procesamiento y análisis</h2></p>
 
-<p> <Strong><h3>Nota:</h3></Strong> El código ejecutado en el presente manual se puede acceder por medio del siguiente link: <a href="https://code.earthengine.google.com/4d0ce03d7d6da67ec670a5ff99835281" target="_blank">https://code.earthengine.google.com/4d0ce03d7d6da67ec670a5ff99835281</a><p>
+<p> <Strong><h3>Nota:</h3></Strong> El código ejecutado en el presente manual se puede acceder por medio del siguiente link: <a href="https://code.earthengine.google.com/5cfb815fbef3e3c11d50e0b325f220eb" target="_blank">https://code.earthengine.google.com/5cfb815fbef3e3c11d50e0b325f220eb</a><p>
 
 <p>Primero se debe generar un polígono (utilice el administrador de geometrías), a partir del cual se mostrará el nivel de zoom y del centro del despliegue del visualizador, esto se ejecuta a través de la casilla <strong>Geometry imports</strong>, en donde se le asigna el nombre de “roi”.<p> 
 
